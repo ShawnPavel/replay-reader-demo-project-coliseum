@@ -1,11 +1,11 @@
-const replayReader = require('fortnite-replay-parser');
-const handleEventEmitter = require('./exports/handleEventEmitter');
-const NetFieldExports = require('./NetFieldExports');
-const customClasses = require('./Classes');
-const fs = require('fs');
+const replayReader = require("fortnite-replay-parser");
+const handleEventEmitter = require("./exports/handleEventEmitter");
+const NetFieldExports = require("./NetFieldExports");
+const customClasses = require("./Classes");
+const fs = require("fs");
 
 (async () => {
-  const replayBinary = fs.readFileSync('replays/server-17.21.replay');
+  const replayBinary = fs.readFileSync("replays/Match2-Player1.replay");
 
   console.time();
   const replay = await replayReader(replayBinary, {
@@ -13,8 +13,9 @@ const fs = require('fs');
     customNetFieldExports: NetFieldExports,
     onlyUseCustomNetFieldExports: true,
     customClasses,
+    debug: true,
   });
   console.timeEnd();
 
-  fs.writeFileSync('result.json', JSON.stringify(replay, null, 2));
+  fs.writeFileSync("result.json", JSON.stringify(replay, null, 2));
 })();

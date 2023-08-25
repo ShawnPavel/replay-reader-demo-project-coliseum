@@ -1,5 +1,6 @@
 module.exports = [
-  require('./SafeZoneIndicator'),
-  require('./FortPlayerState'),
-  require('./SlurpTruck'),
-]
+  // require("./SafeZoneIndicator"),
+  require("./FortPlayerState"),
+  // require("./SlurpTruck"),
+  require("./FortMinigameStatsComponent"),
+];
